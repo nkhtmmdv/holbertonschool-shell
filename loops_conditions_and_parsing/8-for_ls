@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script lists directory contents, showing only text after first dash
+
+for file in *; do
+    if [ -f "$file" ]; then
+        result="${file#*-}"
+        if [ "$result" != "$file" ]; then
+            echo "$result"
+        fi
+    fi
+done
