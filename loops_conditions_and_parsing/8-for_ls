@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# This script lists directory contents, showing only text after first dash
-
+# Lists files, showing part after first dash (or full name if no dash)
 for file in *; do
-    if [ -f "$file" ]; then
-        result="${file#*-}"
-        if [ "$result" != "$file" ]; then
-            echo "$result"
+    if [ -f "$file" ]; then  # Only process files
+        if [[ "$file" == *-* ]]; then
+            echo "${file#*-}"  # Print part after first dash
+        else
+            echo "$file"      # Print full name if no dash
         fi
     fi
 done
