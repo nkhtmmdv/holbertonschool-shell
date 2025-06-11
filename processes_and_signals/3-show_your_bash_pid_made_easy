@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 #smth
-# shellcheck disable=SC2009
-for pid in $(ls /proc); do
-    if [[ "$pid" =~ ^[0-9]+$ ]]; then
-        if [ -f "/proc/$pid/comm" ]; then
-            name=$(<"/proc/$pid/comm")
-            if [[ "$name" == *bash* ]]; then
-                echo "$pid $name"
-            fi
+#!/bin/bash
+
+for pid_path in /proc/[0-9]*; do
+    pid=${pid_path#/proc/}
+    if [ -f "$pid_path/comm" ]; then
+        name=$(<"$pid_path/comm")
+        if [[ "$name" == *bash* ]]; then
+            echo "$pid $name"
         fi
     fi
 done
-
