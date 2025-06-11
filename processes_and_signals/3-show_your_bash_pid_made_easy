@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#smth
+
+for pid in $(ls /proc); do
+    if [[ "$pid" =~ ^[0-9]+$ ]]; then
+        if [ -f "/proc/$pid/comm" ]; then
+            name=$(<"/proc/$pid/comm")
+            if [[ "$name" == *bash* ]]; then
+                echo "$pid $name"
+            fi
+        fi
+    fi
+done
+
