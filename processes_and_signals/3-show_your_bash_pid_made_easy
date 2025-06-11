@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #smth
-
+# shellcheck disable=SC2009
 for pid in $(ls /proc); do
     if [[ "$pid" =~ ^[0-9]+$ ]]; then
         if [ -f "/proc/$pid/comm" ]; then
