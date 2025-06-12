@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# 8-beheaded_process
+
+# Find the PID(s) of the running process named 7-highlander and kill them
+
+pkill -f 7-highlander
+
