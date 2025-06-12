@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # kill infinity loop
 
-PID=$(pgrep -f "4-to_infinity_and_beyond")
-[ -n "$PID" ] && bash -c "kill -15 $PID"
+PID=$(ps -eo pid,cmd | grep "[4]-to_infinity_and_beyond" | awk '{print $1}')
+[ -n "$PID" ] && bash -c "kill -s TERM $PID"
