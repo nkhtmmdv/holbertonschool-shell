@@ -3,4 +3,3 @@
 
 # Find the PID of the process named 7-highlander and kill it
 pkill -9 -f 7-highlander
-
