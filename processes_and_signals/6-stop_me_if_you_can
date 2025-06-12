@@ -1,5 +1,3 @@
-#!/bin/bash
-# kill infinity loop
-
-PID=$(ps -eo pid,cmd | grep "[4]-to_infinity_and_beyond" | awk '{print $1}')
-[ -n "$PID" ] && bash -c "kill -s TERM $PID"
+#!/usr/bin/env bash
+#smth
+pkill -f "4-to_infinity_and_beyond"
