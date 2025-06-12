@@ -1,5 +1,5 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
+# smth
 PID_FILE="/var/run/my_process.pid"
 PROCESS="./manage_my_process"
 
