@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 # smth
-echo $$ > /var/run/myscript.pid
+PIDFILE="/tmp/myscript.pid"
 
-trap 'echo "I hate the kill command"; rm -f /var/run/myscript.pid; exit' SIGTERM
+echo $$ > "$PIDFILE"
+
+trap 'echo "I hate the kill command"; rm -f "$PIDFILE"; exit' SIGTERM
 trap 'echo "Y U no love me?!"' SIGINT
-trap 'rm -f /var/run/myscript.pid; exit' SIGQUIT
+trap 'rm -f "$PIDFILE"; exit' SIGQUIT
 
 while true; do
   echo "To infinity and beyond"
   sleep 1
 done
-
