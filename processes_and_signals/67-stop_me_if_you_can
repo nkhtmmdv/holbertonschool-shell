@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Find PID of the 7-highlander process
+PID=$(pgrep -f "7-highlander")
+
+# Send SIGTERM via a bash sub-shell
+[ -n "$PID" ] && bash -c "kill -15 $PID"
+
