@@ -2,5 +2,4 @@
 # kill infinity loop
 
 PID=$(pgrep -f "4-to_infinity_and_beyond")
-
-[ -n "$PID" ] && bash -c "kill -15 $PID
+[ -n "$PID" ] && bash -c "kill -15 $PID"
